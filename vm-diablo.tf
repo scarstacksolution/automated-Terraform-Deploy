@@ -1,11 +1,11 @@
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
-  name     = "rsgrp-sales-east-pr6xd7g"
+  name     = "rg-hr-diablo-prd"
 }
 
 # Create virtual network
 resource "azurerm_virtual_network" "my_terraform_network" {
-  name                = "vnet-sales-east-pr6xd7g"
+  name                = "vnet1-vm-hr-diablo-prd"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
@@ -81,7 +81,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
-  name                  = "vm1-dradlo-prd"
+  name                  = "vm1-hr-diablo-prd"
   admin_username        = "useradmin1"
   admin_password        = "Password123$"
   location              = azurerm_resource_group.rg.location
