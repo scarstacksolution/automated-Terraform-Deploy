@@ -81,9 +81,9 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
-  name                  = "vm2-diablo-prd"
+  name                  = "vm-diablo-prd"
   admin_username        = "useradmin1"
-  admin_password        = "Password123$"
+  admin_password        = random_password.password.result
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.my_terraform_nic.id]
