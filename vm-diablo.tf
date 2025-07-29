@@ -81,7 +81,7 @@ resource "azurerm_network_interface_security_group_association" "example" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
-  name                  = "vm-diablo-prd"
+  name                  = "vm1-diablo-prd"
   admin_username        = "useradmin1"
   admin_password        = random_password.password.result
   location              = azurerm_resource_group.rg.location
